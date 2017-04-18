@@ -29,24 +29,11 @@ namespace login
 
             userName.Content = "¡Hola " + ControlUsuario.Instance.Usuario + "!";
 
-            ConectorBD.Instance.Conectar();
 
-            string query = @"SELECT nombre,id_combats,id_victories,id_ko,best_assault,best_time,rival  
-                            FROM clasificacion_boxeadores";
+
             
-            MySqlCommand consulta = new MySqlCommand(query, ConectorBD.Instance.conn);
+            clasificación.ItemsSource = ConectorBD.Instance.getDefaulView(); 
 
-            MySqlDataAdapter myAdapter = new MySqlDataAdapter();
-
-            myAdapter.SelectCommand = consulta;
-
-            DataTable dTable = new DataTable();
-
-            myAdapter.Fill(dTable);
-
-            clasificación.ItemsSource = dTable.DefaultView; 
-
-            ConectorBD.Instance.CloseConnection();
                 
         }
 

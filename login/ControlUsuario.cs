@@ -36,11 +36,6 @@ namespace login
             MySqlConnection conn = new MySqlConnection(conexion);
 
             conn.Open();
-
-
-
-
-
             string consulta = "SELECT name FROM user WHERE name=@name AND password=@pass LIMIT 1; ";
             
             MySqlCommand mysqlCommand = new MySqlCommand(consulta, ConectorBD.Instance.conn);
