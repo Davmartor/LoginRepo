@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\admin\documents\visual studio 2015\Projects\login\login\obj\Debug\
+C:\Users\admin\Source\Repos\LoginRepo\login\obj\Debug\
 login
 none
 false
 DEBUG;TRACE
-C:\Users\admin\documents\visual studio 2015\Projects\login\login\App.xaml
-2-684042842
+C:\Users\admin\Source\Repos\LoginRepo\login\App.xaml
+22037783069
 
-12-1890284321
+12724171989
 14-37733517
-MainWindow.xaml;ventana2.xaml;
+LoginWindow.xaml;MainWindow.xaml;
 
-False
+True
 

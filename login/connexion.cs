@@ -43,7 +43,7 @@ namespace login
             this.conn.Close();
         }
 
-        internal IEnumerable getDefaulView()
+        public IEnumerable getDefaulView()
         {
 
             this.Conectar();

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,45 +12,36 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace login
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para ventana2.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ventana2 : Window
     {
         
-
-        public MainWindow()
+        public ventana2()
         {
             InitializeComponent();
+
+            userName.Content = "¡Hola " + ControlUsuario.Instance.Usuario + "!";
+            
+            clasificación.ItemsSource = ConectorBD.Instance.getDefaulView(); 
+
+                
         }
 
-        private void botonCancelar_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+
         }
 
-        private void botonAceptar_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            string user = textBox.Text.ToLower();
-            string pass = passwordBox.Password;
 
-            if (ControlUsuario.Instance.LoginUser(user,pass))
-            {
-                this.Hide();
-                ventana2 ventana2 = new ventana2();
-                ventana2.Show();
-            }
-            else
-            {
-                MessageBox.Show("error de usuario o contraseña");
-            }
         }
-
-       
     }
 }
