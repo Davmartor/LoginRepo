@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:login"
         mc:Ignorable="d"
-        Title="ventana2" Height="300" Width="300">
+        Title="ventana2" Height="340" Width="442">
     <Grid>
 
         <Menu DockPanel.Dock="Top">
@@ -13,11 +13,11 @@
                 <MenuItem x:Name="addBox" Header="Añadir Boxeador" />
             </MenuItem>
             <MenuItem Header="Combates">
-                <MenuItem x:Name="addCombat" Header="Añadir Combate" Click="MenuItem_Click_1"/>
+                <MenuItem x:Name="addCombat" Header="Añadir Combate" Click="addCombat_Click"/>
             </MenuItem>
         </Menu>
         <Label x:Name="userName" HorizontalAlignment="Left" Height="28" Margin =" 0,40,0,0" VerticalAlignment="Top" Width="292"/>
-        <DataGrid x:Name="clasificación" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="226" Width="272"/>
+        <DataGrid x:Name="clasificación" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="236" Width="414"/>
 
     </Grid>
 </Window>

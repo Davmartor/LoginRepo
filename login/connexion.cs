@@ -38,6 +38,30 @@ namespace login
             this.conn.Open();
         }
 
+        public Dictionary<string, string> rellenarBoxeadores()
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+
+            string consulta = @"SELECT id_boxeador,name_boxeador 
+                                FROM combates.boxeadores; ";
+            this.Conectar();
+
+            MySqlCommand command = new MySqlCommand(consulta, this.conn);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                d.Add(
+                    reader["name_boxeador"].ToString(),
+                    reader["id_boxeador"].ToString()
+                    );
+            }
+
+            return d;
+
+        }
+
         public void CloseConnection()
         {
             this.conn.Close();
@@ -48,15 +72,13 @@ namespace login
 
             this.Conectar();
 
-            string query = @"SELECT nombre,id_combats,id_victories,id_ko,best_assault,best_time,rival  
+            string query = @"SELECT nombre,id_combats as combates,id_victories as victorias, id_ko as ko,best_assault, best_time, rival  
                             FROM clasificacion_boxeadores";
 
-            MySqlCommand consulta = new MySqlCommand(query, ConectorBD.Instance.conn);
+            MySqlCommand commando = new MySqlCommand(query, ConectorBD.Instance.conn);
 
-            MySqlDataAdapter myAdapter = new MySqlDataAdapter();
-
-            myAdapter.SelectCommand = consulta;
-
+            MySqlDataAdapter myAdapter = new MySqlDataAdapter(commando);
+            
             DataTable dTable = new DataTable();
 
             myAdapter.Fill(dTable);
